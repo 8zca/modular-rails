@@ -1,0 +1,16 @@
+version: "3.4"
+
+services:
+  rails:
+    build: .
+    container_name: modular_rails
+    environment:
+      - RAILS_ENV=development
+      - EDITOR=vim
+    volumes:
+      - .:/app:cached
+    ports:
+      - 30001:3000
+    tty: true
+    entrypoint: ["bash", "/app/scripts/entrypoint.sh"]
+
